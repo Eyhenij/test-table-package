@@ -24,12 +24,13 @@ import {
     ErrorEventInterface,
     IEntitiesStoreService,
     ITableConfig,
+    LIST_SORT_ORDER_ENUM,
+    ModelStatus,
     Nullable,
     PageModel,
     SortModel,
     UpdatedEventInterface
-} from './util/interfaces';
-import { LIST_SORT_ORDER_ENUM, ModelStatus } from './util/enums';
+} from '../../util';
 
 
 @Directive({
@@ -61,7 +62,7 @@ export abstract class BaseListDirective<ENTITY_TYPE, SORT_PROPERTY_TYPE> impleme
      */
     public sortModel: Signal<SortModel<SORT_PROPERTY_TYPE>>;
 
-    public columns: Array<ColumnPropertiesInterface>;
+    public columns: Array<ColumnPropertiesInterface<ENTITY_TYPE>>;
 
     public emptyFilters: Signal<boolean>;
 
@@ -140,11 +141,11 @@ export abstract class BaseListDirective<ENTITY_TYPE, SORT_PROPERTY_TYPE> impleme
                 this.onEmptyEvent.emit({ id: this.config.id });
             }
 
-            if (this.store.requestStatus() === ModelStatus.Success && this.entities().length){
+            if (this.store.requestStatus() === ModelStatus.Success && this.entities().length) {
                 this.onUpdatedEvent.emit({ id: this.config.id, data: this.entities() });
             }
 
-            if (this.store.requestStatus() === ModelStatus.Success && !this.entities().length){
+            if (this.store.requestStatus() === ModelStatus.Success && !this.entities().length) {
                 this.onEmptyEvent.emit({ id: this.config.id });
             }
 

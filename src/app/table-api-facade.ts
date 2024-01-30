@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { BaseApiFacade } from './base-api-facade';
-import { Nullable } from '../util/interfaces';
+import { BaseApiFacade } from '../../projects/table/src/lib/api/base-api-facade';
+import { Nullable } from '../../projects/table/src/lib/util/interfaces';
 
 
 @Injectable()

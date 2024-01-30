@@ -1,4 +1,4 @@
-export interface ColumnPropertiesInterface {
+export interface ColumnPropertiesInterface<T> {
     /**
      * Show or hide column
      */
@@ -17,7 +17,7 @@ export interface ColumnPropertiesInterface {
     /**
      * Property name in JSON of the server response
      */
-    propName?: string;
+    propName?: keyof T;
 
     /**
      * Enable / disable column sorting

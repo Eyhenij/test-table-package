@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 
-import { BaseApiService } from './base-api.service';
+import { BaseApiService } from '../../projects/table/src/lib/api/base-api.service';
 import { TableEntityModelMapper } from './table-entity-model.mapper';
-import { API_FACADE } from '../util/tokens';
-import { IEntitiesApiFacade } from '../util/interfaces';
+import { API_FACADE } from '../../projects/table/src/lib/util/tokens';
+import { IEntitiesApiFacade } from '../../projects/table/src/lib/util/interfaces';
 
 
 @Injectable()

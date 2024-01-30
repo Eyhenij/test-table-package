@@ -12,7 +12,7 @@
     >
         <thead>
             <tr>
-                @for (column of columns; track column.order) {
+                @for (column of columns; track column.propName) {
                     @if (column.display) {
                         <th
                             [id]="column.order"

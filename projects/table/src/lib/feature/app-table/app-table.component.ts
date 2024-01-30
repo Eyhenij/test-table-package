@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 import { NgZorroModule } from '../../ng-zorro/ng-zorro.module';
 
-import { BaseListDirective } from '../../base-list.directive';
+import { BaseListDirective } from './base-list.directive';
 import { TABLE_CONST } from '../../util/constants';
 import { STORE_SERVICE, TABLE_CONFIG } from '../../util/tokens';
 

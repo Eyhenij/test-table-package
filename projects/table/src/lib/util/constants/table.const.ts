@@ -14,7 +14,7 @@ export namespace TABLE_CONST {
         sortDirection: LIST_SORT_ORDER_ENUM.DESC
     });
 
-    export const TABLE_COLUMNS: Readonly<Array<ColumnPropertiesInterface>> = Object.freeze([
+    export const TABLE_COLUMNS: Readonly<Array<ColumnPropertiesInterface<any>>> = Object.freeze([
         {
             display: true,
             order: 1,

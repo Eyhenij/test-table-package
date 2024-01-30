@@ -8,8 +8,6 @@ import { API_FACADE, API_SERVICE, API_URL, INITIAL_ENTITIES_STATE, STORE_SERVICE
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { DEFAULT_PAGE_MODEL } from './util/constants';
 import { TableEntitiesStoreService } from './data-access/table-entities-store.service';
-import { TableApiFacade } from './api/table-api-facade';
-import { TableApiService } from './api/table-api-service';
 
 
 export const appConfig: ApplicationConfig = {

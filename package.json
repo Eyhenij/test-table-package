@@ -7,7 +7,8 @@
         "build": "ng build",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
-        "server:start": "json-server --watch db.json"
+        "server:start": "json-server --watch db.json",
+        "packagr:util": "ng-packagr -p ./projects/table/ng-package.json && cd ./dist/table && npm pack && npm publish"
     },
     "private": true,
     "dependencies": {
@@ -36,6 +37,7 @@
         "karma-coverage": "~2.2.0",
         "karma-jasmine": "~5.1.0",
         "karma-jasmine-html-reporter": "~2.1.0",
+        "ng-packagr": "^17.1.0",
         "typescript": "~5.3.2"
     }
 }

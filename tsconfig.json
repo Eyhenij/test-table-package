@@ -23,6 +23,11 @@
     "noPropertyAccessFromIndexSignature": false,
     "strict": false,
     "strictPropertyInitialization": false,
+    "paths": {
+      "table": [
+        "./dist/table"
+      ]
+    },
     "esModuleInterop": true
   },
   "angularCompilerOptions": {

@@ -3,7 +3,7 @@ import { booleanAttribute, ChangeDetectionStrategy, Component, EventEmitter, Inp
 import { NgZorroModule } from '../../ng-zorro/ng-zorro.module';
 import { CurrencyPipe, NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
 import { CommonPlaceholderComponent } from '../placeholder/common-placeholder.component';
-import { ColumnPropertiesInterface } from '../../util/interfaces';
+import { ColumnPropertiesInterface } from '../../util';
 
 
 @Component({
@@ -20,18 +20,18 @@ import { ColumnPropertiesInterface } from '../../util/interfaces';
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CommonTableComponent<T, R> {
+export class CommonTableComponent<T> {
     @Input() public entities: T[] = [];
-    @Input() public columns: Readonly<Array<ColumnPropertiesInterface>>;
+    @Input() public columns: Readonly<Array<ColumnPropertiesInterface<T>>>;
     @Input({ transform: booleanAttribute }) public isSmallPlaceholderShown: boolean;
 
     @Output() public readonly sortChange: EventEmitter<{
         sortDirection: string;
-        propertyName: R;
-    }> = new EventEmitter<{ sortDirection: string; propertyName: R; }>();
+        propertyName: keyof T;
+    }> = new EventEmitter<{ sortDirection: string; propertyName: keyof T; }>();
     @Output() public readonly rowClick: EventEmitter<T> = new EventEmitter<T>();
 
-    public onSortChange(sortDirection: string, propertyName: R): void {
+    public onSortChange(sortDirection: string, propertyName: keyof T): void {
         if (this.entities.length && sortDirection) {
             this.sortChange.emit({ sortDirection, propertyName });
         }

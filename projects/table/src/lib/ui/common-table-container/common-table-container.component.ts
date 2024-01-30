@@ -29,7 +29,7 @@ export class CommonTableContainerComponent<T, R> {
     @Input() public pageModel: Nullable<PageModel>;
     @Input() public placeholderButtonIconType: string = 'plus';
     @Input() public entities: T[] = [];
-    @Input() public columns: Readonly<Array<ColumnPropertiesInterface>>;
+    @Input() public columns: Readonly<Array<ColumnPropertiesInterface<T>>>;
     @Input({ transform: booleanAttribute }) public isSmallPlaceholderShown: boolean;
     @Input({ transform: booleanAttribute }) public isMobile: Nullable<boolean>;
     @Input({ transform: booleanAttribute }) public isLoading: boolean;
