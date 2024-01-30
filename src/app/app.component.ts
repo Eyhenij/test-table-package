@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AppTableComponent } from './feature/app-table/app-table.component';
+import { AppTableComponent } from '../../projects/table/src/lib/feature/app-table/app-table.component';
 
 @Component({
   standalone: true,

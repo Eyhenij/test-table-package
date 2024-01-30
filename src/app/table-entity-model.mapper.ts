@@ -1,4 +1,4 @@
-import { IMapper } from '../../projects/table/src/lib/util/interfaces';
+import { IMapper } from '../../projects/table/src/lib/util';
 
 
 export class TableEntityModelMapper implements IMapper<Record<string, any>, Record<string, any>>{

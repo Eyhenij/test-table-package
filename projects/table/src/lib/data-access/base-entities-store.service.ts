@@ -7,20 +7,20 @@ import { catchError, switchMap, tap } from 'rxjs/operators';
 
 import { BaseAsyncStoreService } from './base-async-store.service';
 import {
+    BASE_INITIAL_STATE,
     GridRequestInterface,
     IBaseAsyncState,
     IEntitiesApiService,
     IEntitiesState,
     IEntitiesStoreService,
+    INITIAL_ENTITIES_STATE,
     IRequestParam,
+    LIST_SORT_ORDER_ENUM,
     Nullable,
     PageModel,
     PaginationListStateModel,
     SortModel
-} from '../util/interfaces';
-import { INITIAL_ENTITIES_STATE } from '../util/tokens';
-import { BASE_INITIAL_STATE } from '../util/constants';
-import { LIST_SORT_ORDER_ENUM } from '../util/enums';
+} from '../util';
 
 
 @Injectable()
@@ -221,6 +221,7 @@ export abstract class BaseEntitiesStoreService<
         let params: GridRequestInterface<SORT_PROPERTY_TYPE> = {
             page: this.pageModel().pageNumber,
             limit: this.pageModel().pageSize,
+            search: this.searchTerm() ?? '',
         };
 
         Object.keys(this.params()).forEach((key: string) => {

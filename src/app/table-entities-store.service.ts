@@ -1,9 +1,9 @@
 import { inject, Inject, Injectable, Optional } from '@angular/core';
 
-import { API_SERVICE, INITIAL_ENTITIES_STATE } from '../../projects/table/src/lib/util/tokens';
-import { BaseEntitiesStoreService } from '../../projects/table/src/lib/data-access/base-entities-store.service';
-import { BASE_INITIAL_STATE, TABLE_CONST } from '../../projects/table/src/lib/util/constants';
-import { IEntitiesApiService, IEntitiesState } from '../../projects/table/src/lib/util/interfaces';
+import { API_SERVICE, INITIAL_ENTITIES_STATE } from '../../projects/table/src/lib/util';
+import { BaseEntitiesStoreService } from '../../projects/table/src/lib/data-access';
+import { BASE_INITIAL_STATE, TABLE_CONST } from '../../projects/table/src/lib/util';
+import { IEntitiesApiService, IEntitiesState } from '../../projects/table/src/lib/util';
 
 
 export type IBranchesUpsertEntitiesState = IEntitiesState<object, string>;
