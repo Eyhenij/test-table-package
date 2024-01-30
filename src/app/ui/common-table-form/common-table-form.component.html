@@ -1,0 +1,73 @@
+<form [formGroup]="form" class="c-header">
+    <!-- Page title -->
+    <div class="c-header__title-wrapper">
+        <div class="c-header__title">
+            <span #titleIconRef class="c-header__icon c-header__icon--dark">
+                <ng-content select="[title-icon]"></ng-content>
+            </span>
+
+            <span class="c-header__text" [class.ml-1]="titleIconRef.children.length">
+                <ng-content select="[title-text]"></ng-content>
+            </span>
+        </div>
+
+        <!-- Reset button -->
+        @if (isSearchShown) {
+            <div class="c-header__reset-btn">
+                <button
+                    nz-button
+                    nzType="text"
+                    nz-tooltip
+                    nzTooltipTitle="Clear current filters"
+                    [nzTooltipTrigger]="isMobile ? undefined : 'hover'"
+                    [disabled]="emptyFilters"
+                    (click)="onResetFilters()"
+                >
+                    <i nz-icon nzType="sync" nzTheme="outline"></i>
+                </button>
+            </div>
+        }
+    </div>
+
+    <!-- Action buttons block -->
+    <div class="c-header__actions">
+        <!-- Filter button -->
+        <div class="c-header__action-item">
+            <ng-content select="[filter]"></ng-content>
+        </div>
+    </div>
+
+    <!-- Search field -->
+    <div class="c-header__search">
+        <div class="search">
+            @if (isSearchShown) {
+                <nz-input-group
+                    nzSize="large"
+                    [nzSuffix]="suffixIcon"
+                    [nzPrefix]="prefixIcon"
+                >
+                    <input nzBorderless nz-input type="text" placeholder="Search" formControlName="search"/>
+                </nz-input-group>
+            }
+
+            <ng-template #prefixIcon>
+                <div class="search__icon">
+                    <span nz-icon nzType="search"></span>
+                </div>
+            </ng-template>
+
+            <ng-template #suffixIcon>
+                @if (form.value.search) {
+                    <div class="search__icon search__icon--pointer" (click)="onClearSearch()">
+                        <span nz-icon nzType="close-circle" nzTheme="fill"></span>
+                    </div>
+                }
+            </ng-template>
+        </div>
+    </div>
+
+    <!-- Filters area -->
+    <div class="c-header__filters">
+        <ng-content select="[table-filters]"></ng-content>
+    </div>
+</form>

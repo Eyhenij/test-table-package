@@ -1,0 +1,34 @@
+<bo-common-table-container
+	[title]="title()"
+	[pageModel]="pageModel()"
+    [isLoading]="loading()"
+    [isPlaceholderShown]="!entities()?.length && emptyFilters()"
+	(pageModelChange)="onPageModelChange($event)"
+>
+	<ng-container table-title>
+		<bo-common-table-form
+			[formControl]="control"
+			[emptyFilters]="emptyFilters()"
+			(resetFilters)="resetFilters()"
+		>
+			<ng-container title-icon>
+				<div nz-icon nzType="apartment" nzTheme="outline"></div>
+			</ng-container>
+
+			<ng-container title-text>
+				{{ title() }}
+			</ng-container>
+		</bo-common-table-form>
+	</ng-container>
+
+	<bo-common-table
+		[title]="title"
+		[entities]="entities()"
+		[columns]="columns"
+        [isSmallPlaceholderShown]="!entities().length && !emptyFilters()"
+		(sortChange)="onSortChange($event)"
+        (rowClick)="onRowClick($event)"
+	></bo-common-table>
+</bo-common-table-container>
+
+

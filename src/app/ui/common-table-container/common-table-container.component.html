@@ -1,0 +1,37 @@
+<div class="c-table">
+    @if (isLoading) {
+        <bo-spinner/>
+    }
+
+    @if (!isPlaceholderShown || pageModel?.totalCount) {
+        <div class="c-table c-table__container">
+            <div class="c-table__header">
+                <ng-content select="[table-title]"/>
+            </div>
+
+            <bo-common-table
+                [entities]="entities"
+                [columns]="columns"
+                [isSmallPlaceholderShown]="isSmallPlaceholderShown"
+                (sortChange)="onSortChange($event)"
+                (rowClick)="onRowClick($event)"
+            />
+        </div>
+    } @else {
+        <div class="c-table__placeholder">
+            <bo-common-placeholder [title]="title" [isButtonShown]="isPlaceholderButtonShown">
+                <span button-icon nz-icon nzType="{{ placeholderButtonIconType }}" nzTheme="outline"></span>
+            </bo-common-placeholder>
+        </div>
+    }
+
+    @if (isPaginationShown && !isPlaceholderShown) {
+        <div class="c-table__pagination">
+            <bo-pagination
+                [pageModel]="pageModel"
+                [mobilePagination]="isMobile"
+                (pageModelChange)="onPageModelChange($event)"
+            />
+        </div>
+    }
+</div>

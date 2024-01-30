@@ -1,0 +1,196 @@
+:root {
+    /* Palette */
+    --source-text-color: #FFA500;
+    --target-text-color: #a33f5d;
+
+    --clr-success: green;
+    --clr-warn: darkorange;
+    --clr-danger: red;
+
+    /* Animation */
+
+    /* Components */
+    --header-color: #ffffff;
+    --border-header: #e8e8e8;
+    --table-header-bgr: #fafafa;
+    --header-height: 64px;
+    --table-header-height: 50px;
+    --table-row-height: 50px;
+    --drawer-header-height: 68px;
+
+    /* Z-Index */
+    --z-index-table-header: 3;
+    --z-index-create-btn: 8;
+    --z-index-spinner: 9;
+
+    /* Text */
+    --txt-clr-grey: #aaaaaa;
+}
+
+
+/* Mobile Menu Styles */
+.hamburger {
+    cursor: pointer;
+    display: flex;
+
+    &-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+/* Common Padding Styles */
+.pl-1 {
+    padding-left: .75rem !important;
+}
+
+.pr-1 {
+    padding-right: .75rem !important;
+}
+
+.pb-1 {
+    padding-bottom: .75rem !important;
+}
+
+.pb-2 {
+    padding-bottom: 1rem !important;
+}
+
+.pb-3 {
+    padding-bottom: 1.5rem !important;
+}
+
+
+/* Common Margin Styles */
+.ml-1 {
+    margin-left: .75rem !important;
+}
+
+.mt-1 {
+    margin-top: .75rem !important;
+}
+
+
+/* Common Flex Styles */
+.flex {
+    height: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.flex-row {
+    flex-direction: row !important;
+}
+
+.flex-column {
+    flex-direction: column !important;
+}
+
+.flex-end {
+    justify-content: flex-end !important;
+}
+
+.flex-start {
+    justify-content: flex-start !important;
+}
+
+.space-between {
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.flex-grow {
+    &-1 {
+        flex-grow: 1 !important;
+    }
+
+    &-0 {
+        flex-grow: 0 !important;
+    }
+}
+
+.flex-shrink {
+    &-1 {
+        flex-shrink: 1 !important;
+    }
+
+    &-0 {
+        flex-shrink: 0 !important;
+    }
+}
+
+
+/* Width */
+.--w {
+    &-30 {
+        width: 30%;
+        max-width: 30%;
+    }
+
+    &-40 {
+        width: 40%;
+        max-width: 40%;
+    }
+
+    &-45 {
+        width: 45%;
+        max-width: 45%;
+    }
+
+    &-50 {
+        width: 50%;
+        max-width: 50%;
+    }
+
+    &-60 {
+        width: 60%;
+        max-width: 60%;
+    }
+
+    &-70 {
+        width: 70%;
+        max-width: 70%;
+    }
+
+    &-85 {
+        width: 85%;
+        max-width: 85%;
+    }
+
+    &-100 {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+
+.align-left {
+    text-align: left !important;
+}
+
+.hidden {
+    visibility: hidden !important;
+}
+
+.icon-require {
+    font-size: 20px;
+    top: 0;
+    color: red;
+}
+
+.clr-success {
+    color: var(--clr-success);
+}
+
+.clr-warn {
+    color: var(--clr-warn);
+}
+
+.clr-danger {
+    color: var(--clr-danger);
+}

@@ -1,0 +1,211 @@
+@import '../../../styles/mixin';
+@import '../../../styles/variables';
+
+:host {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .c-header {
+        height: 100%;
+        width: 100%;
+
+        padding: .5rem 0;
+        overflow: hidden;
+
+        display: grid;
+        grid-template-rows: repeat(0, 50px);
+        grid-gap: .5rem;
+
+        grid-template-columns: minmax(auto, 1fr) auto minmax(11rem, 20rem) minmax(17rem, 20rem) auto;
+        grid-template-areas:
+            "title search search datepicker actions"
+            "select-all-cbx select-all-cbx filters filters filters";
+
+        &__title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            grid-area: title;
+            place-self: stretch;
+        }
+
+        &__title {
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            white-space: nowrap;
+        }
+
+        &__text {
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            font-weight: bold;
+            font-size: 1.25rem;
+            margin-right: 15px;
+        }
+
+        &__reset-btn {
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            margin-left: 1.5rem;
+        }
+
+        &__actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            grid-area: actions;
+            place-self: stretch;
+
+            .c-header__action-item + .c-header__action-item {
+                margin-left: .5rem;
+            }
+        }
+
+        &__action-item {
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        &__search {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            grid-area: search;
+            place-self: stretch;
+
+            .search {
+                width: 100%;
+
+                &__icon {
+                    height: 100%;
+                    color: rgba(0, 0, 0, .25);
+
+                    &--pointer {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        &__datepicker {
+            grid-area: datepicker;
+            justify-self: end;
+        }
+
+        &__select-all-cbx {
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            grid-area: select-all-cbx;
+            place-self: stretch;
+        }
+
+        &__filters {
+            height: 100%;
+            width: 100%;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+
+            grid-area: filters;
+            align-self: end;
+
+            &::ng-deep {
+                .c-header-filters__form {
+                    height: 100%;
+                    width: 100%;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
+
+                .c-header__select {
+                    width: 100%;
+                    max-width: 15rem;
+                }
+
+                .c-header__select + .c-header__select {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+
+    @include media-breakpoint-down($device-lg) {
+        .c-header {
+            grid-template-columns: minmax(auto, 1fr) minmax(13rem, 20rem) auto auto;
+            grid-template-areas:
+                "title search search actions"
+                "filters filters filters ."
+                "select-all-cbx datepicker datepicker datepicker";
+        }
+    }
+
+    @include media-breakpoint-down($device-md) {
+        .c-header {
+            grid-template-columns: minmax(auto, 1fr) auto auto auto;
+            grid-template-areas:
+                "title title title actions"
+                "search search search search"
+                "filters filters filters filters"
+                "select-all-cbx datepicker datepicker datepicker";
+        }
+    }
+
+    @include media-breakpoint-down($device-sm) {
+        .c-header {
+            grid-column-gap: 0;
+            grid-template-columns: minmax(auto, 1fr) auto;
+            grid-template-areas:
+                "title actions"
+                "search search"
+                "filters filters"
+                "datepicker datepicker"
+                "select-all-cbx select-all-cbx";
+        }
+
+        .c-header__datepicker {
+            justify-self: start;
+        }
+    }
+
+    @include media-breakpoint-down($device-xs) {
+        .c-header__action-item, .c-header__reset-btn {
+             button {
+                padding-right: .5rem;
+                padding-left: .25rem;
+            }
+        }
+
+        .c-header__reset-btn {
+            margin-left: .25rem;
+        }
+    }
+}

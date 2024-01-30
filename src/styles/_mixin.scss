@@ -1,0 +1,39 @@
+@use 'sass:math';
+
+$breakpoints: (
+    "phone": 599px,
+    "tablet-portrait": 600px,
+    "tablet-landscape": 960px,
+    "desktop": 1280px,
+    "big-desktop": 1440px,
+) !default;
+
+@mixin screen($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    } @else {
+        @warn "Unfortunately, `#{$breakpoint}` can not be found." + "Available breakpoints are : #{map-keys($breakpoints)}";
+    }
+}
+
+@mixin media-breakpoint-up($size) {
+    @media screen and (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin media-breakpoint-down($size) {
+    @media screen and (max-width: $size - 1) {
+        @content;
+    }
+}
+
+// px to rem
+// font-size: rem(16);
+$browser-context: 16;
+@function rem ($valueRem, $context: $browser-context) {
+    $result: math.div($valueRem, $context);
+    @return #{$result}rem;
+}

@@ -1,0 +1,57 @@
+@import 'mixin';
+@import 'variables';
+
+
+.ant-tabs-nav-wrap {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+nz-table {
+    thead {
+        th {
+            font-size: 12px;
+
+            &:first-of-type {
+                padding-left: 1.5rem !important;
+            }
+        }
+
+        th:last-of-type {
+            padding-right: 1.5rem !important;
+        }
+    }
+
+    tbody {
+        td:first-of-type {
+            padding-left: 1.5rem !important;
+        }
+
+        td:last-of-type {
+            padding-right: 1.5rem !important;
+        }
+    }
+}
+
+.ant-drawer-body {
+    padding: 0 !important;
+}
+
+@include media-breakpoint-down($device-xs) {
+    .ant-picker-wrapper {
+        .ant-picker-panels {
+            display: flex !important;
+            flex-direction: column;
+        }
+    }
+
+    .cdk-overlay-container .cdk-overlay-pane:has(.ant-picker-wrapper) {
+        top: 50% !important;
+        bottom: unset !important;
+        translate: 0 -50%;
+
+        .ant-picker-range-arrow {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+@import '../mixin';
+@import '../variables';
+
+
+/* Common Table */
+.c-table {
+    &__container {
+        margin: 0 0 1rem;
+        overflow: hidden;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        margin: .5rem 1.5rem;
+    }
+
+    &__row {
+
+        &:hover {
+            .actions-buttons {
+                visibility: visible;
+            }
+        }
+
+        &--selected:not(:hover) {
+            background-color: rgba(24, 144, 255, 0.3);
+        }
+
+        &--disabled {
+            .c-cell__container {
+                color: var(--txt-clr-grey);
+            }
+
+            .actions-buttons {
+                visibility: hidden !important;
+            }
+        }
+    }
+
+    &__cell {
+        height: 100%;
+        width: 100%;
+
+        &.ant-table-cell-fix-right {
+            background-color: transparent;
+        }
+    }
+
+    &__pagination {
+        padding: 0 1.5rem;
+    }
+
+    &__placeholder {
+        height: 25rem;
+    }
+}

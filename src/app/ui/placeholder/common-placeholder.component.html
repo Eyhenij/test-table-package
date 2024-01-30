@@ -1,0 +1,31 @@
+<div class="c-placeholder">
+    <p class="c-placeholder__title">{{ title }}</p>
+
+    <div class="c-placeholder__icon" #placeholderIcon>
+        <ng-content select="[placeholder-icon]"></ng-content>
+    </div>
+
+    <div *ngIf="!placeholderIcon.innerHTML.trim()">
+        <nz-empty nzNotFoundImage="simple"></nz-empty>
+    </div>
+
+    <button
+        *ngIf="isButtonShown"
+        class="c-placeholder__action c-placeholder-button"
+        nz-button
+        nzType="primary"
+        nzSize="large"
+        nzShape="round"
+        (click)="onPlaceholderButtonClick()"
+    >
+        <span class="c-placeholder-button__icon" #buttonIcon>
+            <ng-content select="[button-icon]"></ng-content>
+        </span>
+
+        <span *ngIf="!buttonIcon.innerHTML.trim()">
+            <span class="c-placeholder-button__icon" nz-icon nzType="plus" nzTheme="outline"></span>
+        </span>
+
+        <span class="c-placeholder-button__title">{{ buttonTitle }}</span>
+    </button>
+</div>

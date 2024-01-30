@@ -1,0 +1,39 @@
+:host {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .c-placeholder {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+
+        padding: 1rem;
+
+        &__title {
+            margin: 0;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        &__icon {
+            margin-bottom: .5rem;
+        }
+
+        &__action {
+            margin-top: 1rem;
+        }
+
+        &__title + &__icon {
+            margin-top: .5rem;
+        }
+
+        &-button__title {
+            margin-left: .5rem;
+        }
+    }
+}

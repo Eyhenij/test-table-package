@@ -1,0 +1,18 @@
+<nz-pagination
+    class="pagination"
+    [nzSize]="mobilePagination ? 'small' : 'default'"
+    [nzShowSizeChanger]="isPageSizeSelectShown"
+    [nzTotal]="pageModel.totalCount"
+    [nzPageSize]="pageModel.pageSize"
+    [nzPageIndex]="pageModel.pageNumber"
+    [nzPageSizeOptions]="pageSizeOptions"
+    [nzShowTotal]="rangeTemplate"
+    (nzPageSizeChange)="onPageSizeChange($event)"
+    (nzPageIndexChange)="onPageNumberChange($event)"
+></nz-pagination>
+
+<ng-template #rangeTemplate let-range="range" let-total>
+    <ng-container *ngIf="!mobilePagination">
+        {{ range[0] }}-{{ range[1] }} of {{ total }} items
+    </ng-container>
+</ng-template>

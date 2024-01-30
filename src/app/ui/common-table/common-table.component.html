@@ -1,0 +1,50 @@
+@if (isSmallPlaceholderShown) {
+    <div class="c-table__placeholder">
+        <bo-common-placeholder/>
+    </div>
+} @else {
+    <!-- nzTemplateMode need to prevent showing of the empty-table placeholder -->
+    <nz-table
+        nzTemplateMode
+        nzSize="small"
+        [nzShowPagination]="false"
+        [nzFrontPagination]="false"
+    >
+        <thead>
+            <tr>
+                @for (column of columns; track column.order) {
+                    @if (column.display) {
+                        <th
+                            [id]="column.order"
+                            [nzWidth]="'150px'"
+                            [nzShowSort]="!!column.sorting"
+                            [nzSortFn]="!!column.sorting"
+                            [nzFilterMultiple]="false"
+                            (nzSortOrderChange)="onSortChange($event, column.propName)"
+                        >
+                            {{ column.header }}
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (row of entities; track $index) {
+                <tr class="c-table__row" (click)="onRowClick(row); $event.stopPropagation()">
+                    @for (column of columns; track column.order) {
+                        @if (column.display) {
+                            <td class="c-table__cell">
+                                @if (column.component) {
+                                    <ng-container *ngComponentOutlet="column.component"/>
+                                } @else {
+                                    {{ column.propName }}
+                                }
+                            </td>
+                        }
+                    }
+                </tr>
+            }
+        </tbody>
+    </nz-table>
+}
