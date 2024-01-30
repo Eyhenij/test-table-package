@@ -9,12 +9,15 @@ import { TableApiFacade } from './table-api-facade';
 import { TableApiService } from './table-api-service';
 import { TableEntitiesStoreService } from './table-entities-store.service';
 import {
-    API_FACADE, API_SERVICE,
+    API_FACADE,
+    API_SERVICE,
     API_URL,
     DEFAULT_PAGE_MODEL,
-    INITIAL_ENTITIES_STATE, STORE_SERVICE,
+    INITIAL_ENTITIES_STATE,
+    STORE_SERVICE,
     TABLE_CONFIG
 } from '../../projects/table/src/lib/util';
+import { TABLE_CONST } from 'table';
 
 
 export const appConfig: ApplicationConfig = {
@@ -37,7 +40,8 @@ export const appConfig: ApplicationConfig = {
                 id: 'someUniqueTableId',
                 props: {
                     test: true
-                }
+                },
+                columns: [...TABLE_CONST.TABLE_COLUMNS]
             }
         },
         {

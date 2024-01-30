@@ -39,22 +39,5 @@ export namespace TABLE_CONST {
             sorting: true,
             component: null,
         },
-
-        // {
-        //     display: true,
-        //     order: 4,
-        //     header: 'created',
-        //     propName: 'createdAt',
-        //     sorting: false,
-        //     component: null,
-        // },
-        // {
-        //     display: true,
-        //     order: 5,
-        //     header: 'updated',
-        //     propName: 'updatedAt',
-        //     sorting: false,
-        //     component: null,
-        // },
     ]);
 }

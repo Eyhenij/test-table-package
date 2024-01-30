@@ -2,7 +2,7 @@ import { inject } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { GridRequestInterface, IEntitiesApiFacade, Nullable, PaginationListApiModel } from '../util/interfaces';
+import { GridRequestInterface, IEntitiesApiFacade, Nullable, PaginationListApiModel } from '../util';
 import { ApiService } from './api-service';
 import { generateGetListUrl } from './generate-url';
 

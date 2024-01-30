@@ -5,13 +5,11 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { NgZorroModule } from '../../ng-zorro/ng-zorro.module';
 
 import { BaseListDirective } from './base-list.directive';
-import { TABLE_CONST } from '../../util/constants';
-import { STORE_SERVICE, TABLE_CONFIG } from '../../util/tokens';
 
 import { CommonTableComponent } from '../../ui/common-table/common-table.component';
 import { CommonTableFormComponent } from '../../ui/common-table-form/common-table-form.component';
 import { CommonTableContainerComponent } from '../../ui/common-table-container/common-table-container.component';
-import { IEntitiesStoreService, ITableConfig } from '../../util/interfaces';
+import { IEntitiesStoreService, ITableConfig, STORE_SERVICE, TABLE_CONFIG, } from '../../util';
 
 
 @Component({
@@ -45,7 +43,7 @@ export class AppTableComponent extends BaseListDirective<any, any> implements On
     public override ngOnInit(): void {
         super.ngOnInit();
 
-        this.columns = [...TABLE_CONST.TABLE_COLUMNS];
+        this.columns = this.config.columns;
 
         if (this.config.props) {
             this.store.setParams(this.config.props);
