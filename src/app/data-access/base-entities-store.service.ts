@@ -189,8 +189,6 @@ export abstract class BaseEntitiesStoreService<
 
             return result;
         });
-
-        this.fetchList();
     }
 
     // ================================

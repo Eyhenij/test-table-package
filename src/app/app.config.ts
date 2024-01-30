@@ -30,6 +30,9 @@ export const appConfig: ApplicationConfig = {
             useValue: {
                 autoLoading: true,
                 id: 'someUniqueTableId',
+                props: {
+                    test: true
+                }
             }
         },
         {

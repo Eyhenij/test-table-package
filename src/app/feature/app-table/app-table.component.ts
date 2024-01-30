@@ -34,12 +34,22 @@ export class AppTableComponent extends BaseListDirective<any, any> implements On
     override readonly fb: FormBuilder = inject(FormBuilder);
     override readonly store: IEntitiesStoreService<object, string> = inject(STORE_SERVICE);
 
-    override readonly config: ITableConfig = inject(TABLE_CONFIG);
+    override readonly config: ITableConfig = {
+        autoLoading: true,
+        id: Math.floor((Math.random() * 1000) + 1),
+        props: {},
+
+        ...inject(TABLE_CONFIG)
+    };
 
     public override ngOnInit(): void {
         super.ngOnInit();
 
         this.columns = [...TABLE_CONST.TABLE_COLUMNS];
+
+        if (this.config.props) {
+            this.store.setParams(this.config.props);
+        }
 
         if (this.config.autoLoading && !this.store.pageEntities().length) {
             this.getData();

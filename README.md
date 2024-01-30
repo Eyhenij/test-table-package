@@ -1,27 +1,44 @@
-# Untitled1
+# APP TABLE
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `server:start` to start json-server. The server will automatically restart if you change db.json file.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4400/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Конфиг таблицы.
+Конфиг внедряется через DI в компонент таблицы. TABLE_CONFIG token. Используется интерфейс ITableConfig. В конфиге можно задать следующие параметры:
+* autoLoading: boolean - автоматическая загрузка данных при инициализации таблицы. По умолчанию true.
+* id: number - уникальный идентификатор таблицы. По умолчанию случайное число от 0 до 1000.
+* props: Record<string, string | number | boolean> - дополнительные параметры запроса для получения списка сущностей. По умолчанию пустой объект.
+* messageNotFound: string – текст сообщения, если данные не найдены. По умолчанию не задано.
+* messagePending: string – текст сообщения, когда данные загружаются. По умолчанию не задано.
+* header: string – название таблицы (заголовок). По умолчанию не задано.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## События.
+Таблица поддерживает следующие события:
+* onClickByRowEvent: ClickByRowEventInterface – Пользователь кликнул (выбрал) строку в таблице.
+* onEmptyEvent: EmptyEventInterface – Ответ от сервера был получен, но в ответе нет данных. Ничего не найдено.
+* onUpdatedEvent: UpdatedEventInterface – Ответ от сервера был получен, в ответе есть данные.
+* onErrorEvent: ErrorEventInterface – Ответ от сервера не был получен, ошибка HTTP.
 
-## Build
+## Необходимые сервисы.
+Для работы таблицы необходимо внедрить следующие сервисы:
+* TableApiFacade – сервис для получения данных с сервера (фасад). API_FACADE token. Необходимо реализовать интерфейс BaseApiFacade.
+* TableApiService – сервис для получения данных с сервера (слой маппинга). API_SERVICE token. Необходимо реализовать интерфейс BaseApiService.
+* TableEntitiesStoreService – сервис для хранения данных. STORE_SERVICE token. Необходимо реализовать интерфейс BaseEntitiesStoreService.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Тулбар.
+Тулбар передаётся в компонент таблицы через ng-content (проекция контента).
 
-## Running unit tests
+## Загрузка состояния.
+Состояние таблицы представляет собой класс, который содержит следующие поля (angular signals):
+* pageModel: PageModel – модель пагинации.
+* sortModel: SortModel – модель сортировки.
+* searchTerm: string – строка поиска.
+* params: Record<string, string | number | boolean> – дополнительные параметры запроса для получения списка сущностей. Передаются в таблицу через конфиг.
+* pageEntities Array<ENTITY_TYPE> – массив сущностей.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+!Данные не хранятся в url страницы!
+!Библиотека использует ui компоненты из ng-zorro!
