@@ -6,5 +6,5 @@ import { Nullable } from '../util/interfaces';
 
 @Injectable()
 export class TableApiFacade extends BaseApiFacade<object, string> {
-    protected override readonly getListUrl: Nullable<string> = 'company-branch';
+    protected override readonly getListUrl: Nullable<string> = 'posts';
 }

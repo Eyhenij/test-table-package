@@ -1,7 +1,6 @@
 import { booleanAttribute, ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { NgZorroModule } from '../../ng-zorro/ng-zorro.module';
-import { NgIf } from '@angular/common';
 
 
 @Component({
@@ -12,7 +11,6 @@ import { NgIf } from '@angular/common';
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [
         NgZorroModule,
-        NgIf
     ],
 })
 export class CommonPlaceholderComponent {

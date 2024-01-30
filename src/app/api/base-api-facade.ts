@@ -26,7 +26,7 @@ export abstract class BaseApiFacade<
         body: {}
     ): Observable<PaginationListApiModel<ENTITY_API_TYPE> | ENTITY_API_TYPE[]> {
         if (this.getListUrl) {
-            return this.apiService.post<
+            return this.apiService.get<
                 PaginationListApiModel<ENTITY_API_TYPE> | ENTITY_API_TYPE[],
                 {}
             >(`${this.getListUrl}${generateGetListUrl(params)}`, body);

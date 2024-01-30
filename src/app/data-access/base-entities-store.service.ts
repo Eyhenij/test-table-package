@@ -219,20 +219,25 @@ export abstract class BaseEntitiesStoreService<
     }
 
     #getRequestParams(): GridRequestInterface<SORT_PROPERTY_TYPE> {
-        const params: GridRequestInterface<SORT_PROPERTY_TYPE> = {
+        let params: GridRequestInterface<SORT_PROPERTY_TYPE> = {
             page: this.pageModel().pageNumber,
             limit: this.pageModel().pageSize,
-            order: {
-                by: this.sortModel().propertyName,
-                type: this.sortModel().sortDirection
-            }
         };
 
         Object.keys(this.params()).forEach((key: string) => {
-            if (Object.prototype.hasOwnProperty.call(this.params(), key)) {
+            if (Object.prototype.hasOwnProperty.call(this.params(), key) && key !== 'order') {
                 params[key] = this.params()[key];
             }
         });
+
+        if (Object.prototype.hasOwnProperty.call(this.params(), 'order')) {
+            params = {
+                ...params,
+
+                ['order.by']: this.sortModel().propertyName,
+                ['order.type']: this.sortModel().sortDirection,
+            };
+        }
 
         return params;
     }

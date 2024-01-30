@@ -1,0 +1,32 @@
+{
+    "posts": {
+        "data": [
+            {
+                "id": "1",
+                "title": "title 1",
+                "views": 100
+            },
+            {
+                "id": "2",
+                "title": "title 2",
+                "views": 200
+            },
+            {
+                "id": "3",
+                "title": "title 3",
+                "views": 300
+            },
+            {
+                "id": "4",
+                "title": "title 4",
+                "views": 400
+            },
+            {
+                "id": "5",
+                "title": "title 5",
+                "views": 500
+            }
+        ],
+        "allCounts": 20
+    }
+}

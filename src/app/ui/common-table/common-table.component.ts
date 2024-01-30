@@ -16,7 +16,7 @@ import { ColumnPropertiesInterface } from '../../util/interfaces';
         CurrencyPipe,
         NgTemplateOutlet,
         NgComponentOutlet,
-        CommonPlaceholderComponent
+        CommonPlaceholderComponent,
     ],
     changeDetection: ChangeDetectionStrategy.OnPush
 })

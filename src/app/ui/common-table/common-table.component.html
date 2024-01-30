@@ -38,7 +38,7 @@
                                 @if (column.component) {
                                     <ng-container *ngComponentOutlet="column.component"/>
                                 } @else {
-                                    {{ column.propName }}
+                                    {{ row[column.propName] }}
                                 }
                             </td>
                         }

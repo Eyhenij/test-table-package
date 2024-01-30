@@ -9,13 +9,7 @@
                 <ng-content select="[table-title]"/>
             </div>
 
-            <bo-common-table
-                [entities]="entities"
-                [columns]="columns"
-                [isSmallPlaceholderShown]="isSmallPlaceholderShown"
-                (sortChange)="onSortChange($event)"
-                (rowClick)="onRowClick($event)"
-            />
+            <ng-content/>
         </div>
     } @else {
         <div class="c-table__placeholder">

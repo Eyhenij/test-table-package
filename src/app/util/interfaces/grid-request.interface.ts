@@ -23,4 +23,7 @@ export interface GridRequestInterface<SORT_PROPERTY_TYPE> {
     search?: string;
     dateFrom?: string;
     dateTo?: string;
+
+    ['order.by']?: SORT_PROPERTY_TYPE,
+    ['order.type']?: ListSortOrderType,
 }
