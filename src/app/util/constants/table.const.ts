@@ -20,7 +20,7 @@ export namespace TABLE_CONST {
             order: 1,
             header: 'title',
             propName: 'title',
-            sorting: false,
+            sorting: true,
             component: null,
         },
         {
@@ -28,7 +28,7 @@ export namespace TABLE_CONST {
             order: 2,
             header: 'id',
             propName: 'id',
-            sorting: false,
+            sorting: true,
             component: null,
         },
         {
@@ -36,7 +36,7 @@ export namespace TABLE_CONST {
             order: 3,
             header: 'views',
             propName: 'views',
-            sorting: false,
+            sorting: true,
             component: null,
         },
 

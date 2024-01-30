@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { NgComponentOutlet } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
@@ -11,12 +11,7 @@ import { STORE_SERVICE, TABLE_CONFIG } from '../../util/tokens';
 import { CommonTableComponent } from '../../ui/common-table/common-table.component';
 import { CommonTableFormComponent } from '../../ui/common-table-form/common-table-form.component';
 import { CommonTableContainerComponent } from '../../ui/common-table-container/common-table-container.component';
-import {
-    ClickByRowEventInterface,
-    EmptyEventInterface, ErrorEventInterface,
-    IEntitiesStoreService,
-    ITableConfig, UpdatedEventInterface
-} from '../../util/interfaces';
+import { IEntitiesStoreService, ITableConfig } from '../../util/interfaces';
 
 
 @Component({

@@ -164,6 +164,7 @@ export abstract class BaseEntitiesStoreService<
 
     public setSortModel(sortModel: SortModel<SORT_PROPERTY_TYPE>): void {
         this.sortModel.set(sortModel);
+        this.fetchList();
     }
 
     public setSearchTerm(searchTerm: Nullable<string>): void {
@@ -230,7 +231,7 @@ export abstract class BaseEntitiesStoreService<
             }
         });
 
-        if (Object.prototype.hasOwnProperty.call(this.params(), 'order')) {
+        if (this.sortModel().propertyName) {
             params = {
                 ...params,
 
